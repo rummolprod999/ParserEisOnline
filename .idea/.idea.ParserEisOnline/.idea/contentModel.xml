@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.2/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.2/system/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_ParserEisOnline.1148011238.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.2/system/rust_expanded_macros/oUCUFjcS/expansions" t="IncludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p=".git/info/exclude" t="IncludeRecursive" />
+      <e p="ParserEisOnline" t="IncludeRecursive">
+        <e p="AbstractDocument.fs" t="Include" />
+        <e p="AbstractParser.fs" t="Include" />
+        <e p="AppBuilder.fs" t="Include" />
+        <e p="Arguments.fs" t="Include" />
+        <e p="Executor.fs" t="Include" />
+        <e p="HttpLibrary.fs" t="Include" />
+        <e p="IDocument.fs" t="Include" />
+        <e p="IParser.fs" t="Include" />
+        <e p="Logger.fs" t="Include" />
+        <e p="ModuleEnvVar.fs" t="Include" />
+        <e p="ParserEis44.fs" t="Include" />
+        <e p="ParserEisOnline.fsproj" t="IncludeRecursive" />
+        <e p="Program.fs" t="Include" />
+        <e p="StartParsing.fs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+      </e>
+      <e p="ParserEisOnline.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
