@@ -16,6 +16,7 @@
         <e p="AppBuilder.fs" t="Include" />
         <e p="Arguments.fs" t="Include" />
         <e p="DocumentBuilder.fs" t="Include" />
+        <e p="DocumentFz44.fs" t="Include" />
         <e p="Executor.fs" t="Include" />
         <e p="HttpLibrary.fs" t="Include" />
         <e p="IDocument.fs" t="Include" />

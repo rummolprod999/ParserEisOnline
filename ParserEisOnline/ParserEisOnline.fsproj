@@ -18,6 +18,7 @@
         <Compile Include="AppBuilder.fs" />
         <Compile Include="AbstractDocument.fs" />
         <Compile Include="AbstractParser.fs" />
+        <Compile Include="DocumentFz44.fs" />
         <Compile Include="ParserEis44.fs" />
         <Compile Include="StartParsing.fs" />
         <Compile Include="Executor.fs" />

@@ -53,7 +53,10 @@ type ParserEis44(dir: string) =
                         let! datePub = pubDateT.Replace("Размещено:", "").Trim() .DateFromStringDoc("dd.MM.yyyy", sprintf "datePub not parse %s %s" pubDateT urlTen)
                         let! updDateT = node.GsnDocWithError ".//li[label[. = 'Обновлено:']]" <| sprintf "updDateT not found %s" urlTen
                         let! dateUpd = updDateT.Replace("Обновлено:", "").Trim() .DateFromStringDoc("dd.MM.yyyy", sprintf "dateUpd not parse %s %s" updDateT urlTen)
-                        printfn "%O" dateUpd
+                        let doc = DocumentFz44(purNum, statusTen, datePub, dateUpd, urlTen)
+                        try
+                               doc.WorkerEntity()
+                        with e -> Log.logger (e, urlTen)
                         return "ok"
                   }
             match result with
