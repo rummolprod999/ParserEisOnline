@@ -12,8 +12,10 @@
       <e p="ParserEisOnline" t="IncludeRecursive">
         <e p="AbstractDocument.fs" t="Include" />
         <e p="AbstractParser.fs" t="Include" />
+        <e p="AgilityExtensions.fs" t="Include" />
         <e p="AppBuilder.fs" t="Include" />
         <e p="Arguments.fs" t="Include" />
+        <e p="DocumentBuilder.fs" t="Include" />
         <e p="Executor.fs" t="Include" />
         <e p="HttpLibrary.fs" t="Include" />
         <e p="IDocument.fs" t="Include" />

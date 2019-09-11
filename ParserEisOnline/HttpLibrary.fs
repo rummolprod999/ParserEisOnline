@@ -10,6 +10,7 @@ open System.Threading
 open System.Threading.Tasks
 
 module Download =
+    let C = 10
     type TimedWebClient() =
         inherit WebClient()
         override this.GetWebRequest(address: Uri) =
@@ -41,7 +42,7 @@ module Download =
             with
                 | :? WebException as e when e.Response.GetType() = typedefof<HttpWebResponse> && (e.Response :?> HttpWebResponse).StatusCode = HttpStatusCode.Forbidden -> continueLooping <- false; Logging.Log.logger (sprintf "Forbidden %s" url)
 
-                | _ when !count >= 10 ->
+                | _ when !count >= C ->
                             Logging.Log.logger (sprintf "Не удалось скачать %s за %d попыток" url !count)
                             continueLooping <- false
                 | t when t.InnerException.Message.Contains("(404) Not Found") -> continueLooping <- false; Logging.Log.logger (sprintf "404 Page %s" url)
