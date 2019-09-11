@@ -2,6 +2,7 @@ namespace ParserEis
 open Logging
 open HtmlAgilityPack
 open TypeAg
+open TypeSt
 type ParserEis44(dir: string) =
       inherit AbstractParser()
 
@@ -44,7 +45,15 @@ type ParserEis44(dir: string) =
             let result =
                   builder {
                         let! aTag = node.GsnAtrDocWithError ".//td[@class = 'descriptTenderTd']//a" "href" <| sprintf "href not found %s" url
-                        printfn "%s" aTag
+                        let urlTen = sprintf "http://zakupki.gov.ru%s" aTag
+                        let! purNum = aTag.Get1Doc "regNumber=(\d+)$" <| sprintf "purNum not found %s" urlTen
+                        let! status = node.GsnDocWithError ".//td[@class = 'tenderTd']//dt//span[contains(@class, 'noWrap')]" <| sprintf "status not found %s" urlTen
+                        let! statusTen = status.Get1Doc @"(.+)/" <| sprintf "statusTen not found %s" urlTen
+                        let! pubDateT = node.GsnDocWithError ".//li[label[. = 'Размещено:']]" <| sprintf "pubDateT not found %s" urlTen
+                        let! datePub = pubDateT.Replace("Размещено:", "").Trim() .DateFromStringDoc("dd.MM.yyyy", sprintf "datePub not parse %s %s" pubDateT urlTen)
+                        let! updDateT = node.GsnDocWithError ".//li[label[. = 'Обновлено:']]" <| sprintf "updDateT not found %s" urlTen
+                        let! dateUpd = updDateT.Replace("Обновлено:", "").Trim() .DateFromStringDoc("dd.MM.yyyy", sprintf "dateUpd not parse %s %s" updDateT urlTen)
+                        printfn "%O" dateUpd
                         return "ok"
                   }
             match result with

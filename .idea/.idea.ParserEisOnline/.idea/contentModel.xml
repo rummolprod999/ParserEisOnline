@@ -26,6 +26,7 @@
         <e p="ParserEisOnline.fsproj" t="IncludeRecursive" />
         <e p="Program.fs" t="Include" />
         <e p="StartParsing.fs" t="Include" />
+        <e p="StringExtensions.fs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
       </e>
