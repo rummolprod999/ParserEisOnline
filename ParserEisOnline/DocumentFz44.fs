@@ -55,13 +55,14 @@ type DocumentFz44() =
                             let! datePubT = fulldatePub.Get1Doc @"(\d{2}\.\d{2}\.\d{4}\s\d{2}:\d{2})" <| sprintf "datePubT not found %s" __.Url
                             let! datePubLocal = datePubT.DateFromStringDoc("dd.MM.yyyy HH:mm", sprintf "datePubT not parse %s %s" datePubT __.Url)
                             let! uTc = fulldatePub.Get1Doc @"UTC([+\-]\d{1,2})" <| sprintf "uTc not found %s" __.Url
-                            let temp = "+10"
-                            let temp2 = "-10"
-                            let t1 = Int32.Parse(temp)
-                            let t2 = Int32.Parse(temp2)
+                            let tr, utc = Int32.TryParse(uTc)
+                            if not tr then return! Err <| sprintf "utc offset not a number %s" __.Url
+                            let msk = (utc - 3) * -1
+                            let datePub = datePubLocal.AddHours(float msk)
                             
                             printfn "%s" fulldatePub
                             printfn "%O" datePubLocal
+                            printfn "%O" datePub
                             let (cancelStatus, updated) = __.SetCancelStatus(con, __.updateDate, __.purNum)
                             return ""
                        }
