@@ -49,7 +49,7 @@ module Download =
                 | z when z.InnerException <> null && z.InnerException.Message <> null && z.InnerException.Message.Contains("(403) Forbidden") -> continueLooping <- false; Logging.Log.logger (sprintf "403 Page %s" url)
                 | p when p.InnerException <> null && p.InnerException.Message <> null && p.InnerException.Message.Contains("The remote server returned an error: (434)") -> continueLooping <- false; Logging.Log.logger (sprintf "434 Page %s" url)
                 | y -> incr count
-                       Logging.Log.logger (sprintf "Error %s %s" url y.Message)
+                       Logging.Log.logger (sprintf "Error download %s %s" url y.Message)
                        Thread.Sleep(5000)
         s
 

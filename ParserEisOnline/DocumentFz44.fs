@@ -69,10 +69,10 @@ type DocumentFz44() =
                             let! organizerPostAddress = navT.GsnDocWithError "//td[text() = 'Почтовый адрес']/following-sibling::td" <| sprintf "organizerPostAddress not found %s" __.Url
                             let! organizerFactAddress = navT.GsnDocWithError "//td[text() = 'Место нахождения']/following-sibling::td" <| sprintf "organizerFactAddress not found %s" __.Url
                             let organizerInn = ""
-                            let! organizerContact = navT.GsnDocWithError "//td[text() = 'Ответственное должностное лицо']/following-sibling::td" <| sprintf "organizerContact not found %s" __.Url
-                            let! organizerEmail = navT.GsnDocWithError "//td[text() = 'Адрес электронной почты']/following-sibling::td" <| sprintf "organizerEmail not found %s" __.Url
-                            let! organizerFax = navT.GsnDocWithError "//td[text() = 'Факс']/following-sibling::td" <| sprintf "organizerFax not found %s" __.Url
-                            let! organizerPhone = navT.GsnDocWithError "//td[text() = 'Номер контактного телефона']/following-sibling::td" <| sprintf "organizerPhone not found %s" __.Url
+                            let! organizerContact = navT.GsnDoc "//td[text() = 'Ответственное должностное лицо']/following-sibling::td"
+                            let! organizerEmail = navT.GsnDoc "//td[text() = 'Адрес электронной почты']/following-sibling::td"
+                            let! organizerFax = navT.GsnDoc "//td[text() = 'Факс']/following-sibling::td"
+                            let! organizerPhone = navT.GsnDoc "//td[text() = 'Номер контактного телефона']/following-sibling::td"
                             let idOrganizer = ref 0
                             let idCustomer = ref 0
                             if organizerFullName <> "" then
